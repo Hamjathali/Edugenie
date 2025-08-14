@@ -40,7 +40,7 @@ st.set_page_config(page_title="EduGenie", layout="wide")
 
 with st.sidebar:
     st.markdown("<h1 style='text-align: left; font-size:36px;'>EduGenie</h1>", unsafe_allow_html=True)
-    st.image("assets/logo.png", width=150)
+    st.image("edu/EduGenie-main/assets/logo.png", width=150)
     st.title("AI Tools Suite")
     st.markdown("""
     👋 Welcome to our **AI-powered college tools** !
