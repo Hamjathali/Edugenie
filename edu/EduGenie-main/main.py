@@ -75,7 +75,8 @@ st.markdown("---")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.image("assets/question_paper.jpg", use_column_width=True)
+    st.image("edu/EduGenie-main/assets/question_paper.jpg", use_container_width=True)
+
     if st.button("📝 Generate Question Paper"):
         subprocess.Popen(["streamlit", "run", "question_paper_app.py"])
         st.success("Launching Question Paper Generator...")
