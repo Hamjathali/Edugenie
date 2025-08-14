@@ -157,12 +157,9 @@ with st.form("feedback_form"):
 
     submitted = st.form_submit_button("Submit Feedback")
     if submitted:
-        
-        with open(feedback.txt, "r") as f:
-
+        with open("feedback.txt", "a") as f:  # 'a' to append instead of overwrite
             f.write(f"Name: {name}\nRating: {rating}/5\nFeedback: {feedback}\n{'-'*40}\n")
-        st.success("✅ Thank you for your valuable feedback!")
-
+    st.success("✅ Thank you for your valuable feedback!")
 
 
 
@@ -170,11 +167,15 @@ import pandas as pd
 import altair as alt
 
 ratings = []
-with open(feedback.txt, "r") as f:
-    feedbacks = f.readlines()
-    for line in f:
-        if "Rating" in line:
-            ratings.append(int(line.split(":")[1].split("/")[0].strip()))
+if os.path.exists("feedback.txt"):
+    with open("feedback.txt", "r") as f:
+        feedbacks = f.readlines()
+        for line in feedbacks:
+            if "Rating" in line:
+                ratings.append(int(line.split(":")[1].split("/")[0].strip()))
+else:
+    feedbacks = []
+
 
 if ratings:
     df = pd.DataFrame(ratings, columns=["Rating"])
