@@ -116,7 +116,7 @@ with col2:
     """, unsafe_allow_html=True)
 
 with col3:
-    st.image("assets/timetable.png", use_column_width=True)
+    st.image("assets/chatbot.jpg", use_column_width=True)
     if st.button("📅 Generate Timetable"):
         subprocess.Popen(["streamlit", "run", "timetable_app.py"])
         #webbrowser.open("http://localhost:5000")              
