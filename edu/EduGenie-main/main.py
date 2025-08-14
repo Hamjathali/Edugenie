@@ -158,7 +158,8 @@ with st.form("feedback_form"):
     submitted = st.form_submit_button("Submit Feedback")
     if submitted:
         
-        with open("feedbacks.txt", "a") as f:
+        with open("feedback.txt", "r") as f:
+
             f.write(f"Name: {name}\nRating: {rating}/5\nFeedback: {feedback}\n{'-'*40}\n")
         st.success("✅ Thank you for your valuable feedback!")
 
