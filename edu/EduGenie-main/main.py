@@ -169,7 +169,8 @@ import pandas as pd
 import altair as alt
 
 ratings = []
-with open("feedbacks.txt", "r") as f:
+with open(feedback.txt, "r") as f:
+    feedbacks = f.readlines()
     for line in f:
         if "Rating" in line:
             ratings.append(int(line.split(":")[1].split("/")[0].strip()))
