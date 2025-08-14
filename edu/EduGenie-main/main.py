@@ -97,6 +97,7 @@ with col1:
 with col2:
     st.image("edu/EduGenie-main/assets/chatbot.jpg", use_container_width=True)
 
+
     if st.button("💬 Open College Chatbot"):
         subprocess.Popen(["streamlit", "run", "college_chatbot.py"])
         st.success("Launching College Chatbot...")
