@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900 text-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Timetable</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6">
+    <h1 class="text-4xl font-bold mb-6 text-center text-teal-400">Generated Timetable</h1>
+    {% for class_name, days in timetable.items() %}
+        <div class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+            <h2 class="text-2xl text-teal-300 font-semibold mb-4">Class: {{ class_name }}</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full table-auto border-collapse border border-gray-700 text-center text-white">
+                    <thead class="bg-gray-700">
+                        <tr>
+                            <th class="border border-gray-600 px-4 py-2">Day</th>
+                            {% for i in range(7) %}
+                                <th class="border border-gray-600 px-4 py-2">Period {{ i + 1 }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for day, periods in days.items() %}
+                            <tr class="hover:bg-gray-700">
+                                <td class="border border-gray-600 px-4 py-2">{{ day }}</td>
+                                {% for period in periods %}
+                                    <td class="border border-gray-600 px-4 py-2">{{ period }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="text-center mt-6">
+        <a href="/" class="inline-block bg-teal-500 hover:bg-teal-600 px-6 py-2 rounded text-white font-semibold transition">Generate Another Timetable</a>
+    </div>
+</body>
+</html>
