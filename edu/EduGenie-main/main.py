@@ -1,5 +1,5 @@
 import streamlit as st
-
+import os
 
 USER_CREDENTIALS = {
     "admin": "admin123",
@@ -95,8 +95,8 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.image("edu/EduGenie-main/assets/chatbot.jpg", use_container_width=True)
-
+    image_path_chatbot = os.path.join(os.path.dirname(__file__), "assets", "chatbot.jpg")
+    st.image(image_path_chatbot, use_container_width=True)
 
     if st.button("💬 Open College Chatbot"):
         subprocess.Popen(["streamlit", "run", "college_chatbot.py"])
@@ -116,11 +116,13 @@ with col2:
     </div>
     """, unsafe_allow_html=True)
 
+
 with col3:
-    st.image("assets/chatbot.jpg", use_container_width=True)
+    image_path_timetable = os.path.join(os.path.dirname(__file__), "assets", "chatbot.jpg")
+    st.image(image_path_timetable, use_container_width=True)
+
     if st.button("📅 Generate Timetable"):
         subprocess.Popen(["streamlit", "run", "timetable_app.py"])
-        #webbrowser.open("http://localhost:5000")              
         st.success("Launching Timetable Generator...")
     st.markdown("""
     <div style='padding: 10px; background-color: #1e1e1e; border-radius: 10px; color: #cccccc; margin-top: 10px;'>
@@ -136,6 +138,7 @@ with col3:
         </p>
     </div>
     """, unsafe_allow_html=True)
+
 
 st.markdown("---")
 st.markdown("<p style='text-align: center;'>💡 Developed for the event at IFET College Of Engineering  of Event name Ibaklava </p>", unsafe_allow_html=True)
